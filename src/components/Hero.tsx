@@ -7,7 +7,7 @@ export function Hero() {
             Happy Birthday
           </h1>
           <h2 className="text-4xl md:text-6xl font-dancing text-primary mb-12">
-            Sarah! 🎉
+            Dahlia! 🎉
           </h2>
         </div>
 
@@ -22,7 +22,7 @@ export function Hero() {
               Another year of awesome! ✨
             </div>
             <div className="text-center mt-2 font-dancing text-xl text-gray-700">
-              20 October 2025 🎈🎇
+              4^th March  2026 🎈🎇
             </div>
           </div>
         </div>
