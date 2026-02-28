@@ -1,38 +1,62 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function BackgroundMusic() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [started, setStarted] = useState(false);
 
+  // Try autoplay on load
   useEffect(() => {
-    const startMusic = async () => {
-      if (!audioRef.current) return;
+    const audio = audioRef.current;
+    if (!audio) return;
 
-      try {
-        audioRef.current.volume = 0.35; // soft piano volume
-        await audioRef.current.play();
-      } catch (err) {
-        console.log("Autoplay blocked until interaction");
-      }
-    };
+    audio.volume = 0.35;
 
-    // try immediately
-    startMusic();
-
-    // fallback: start after first interaction
-    document.addEventListener("click", startMusic);
-    document.addEventListener("scroll", startMusic);
-    document.addEventListener("touchstart", startMusic);
-
-    return () => {
-      document.removeEventListener("click", startMusic);
-      document.removeEventListener("scroll", startMusic);
-      document.removeEventListener("touchstart", startMusic);
-    };
+    audio.play()
+      .then(() => setStarted(true))
+      .catch(() => {
+        // autoplay blocked — user must click button
+        console.log("Autoplay blocked");
+      });
   }, []);
 
+  const startMusic = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      await audio.play();
+      setStarted(true);
+    } catch (err) {
+      console.log("User interaction required");
+    }
+  };
+
   return (
-    <audio ref={audioRef} loop preload="auto">
-      <source src="/music/birthday-piano.mp3" type="audio/mpeg" />
-    </audio>
+    <>
+      {/* Audio Element */}
+      <audio ref={audioRef} loop preload="auto">
+        <source src="/music/birthday-piano.mp3" type="audio/mpeg" />
+      </audio>
+
+      {/* Show button only if music not started */}
+      {!started && (
+        <button
+          onClick={startMusic}
+          className="
+            fixed top-8 right-30 z-50
+            px-5 py-3
+            rounded-full
+            bg-pink-500 text-white
+            font-semibold
+            shadow-lg
+            animate-bounce
+            hover:bg-pink-600
+            transition-all duration-300
+          "
+        >
+          🎵 Click for Music
+        </button>
+      )}
+    </>
   );
 }

@@ -3,18 +3,18 @@ export function Hero() {
     <section className="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden pt-20">
       <div className="container mx-auto px-4 text-center z-10">
         <div className="fade-in-up">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-dancing font-bold gradient-text mb-8">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-dancing font-bold gradient-text mb-4 pb-5">
             Happy Birthday
           </h1>
           <h2 className="text-4xl md:text-6xl font-dancing text-primary mb-12">
-            Dahlia! 🎉
+            Dahlia ! 🎉
           </h2>
         </div>
 
         <div className="flex justify-center mb-12 scale-in" style={{ animationDelay: '0.3s' }}>
           <div className="polaroid">
             <img 
-              src="/images/hero.jpg" 
+              src="/images/dahlia.jpeg" 
               alt="Birthday person" 
               className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg"
             />
