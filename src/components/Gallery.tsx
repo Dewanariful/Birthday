@@ -3,35 +3,36 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const galleryImages = [
-  {
-    id: 1,
-    src: '/images/gallery1.jpg',
-    alt: 'A',
-  },
-  {
-    id: 2,
-    src: '/images/gallery2.jpg',
-    alt: 'B',
-  },
+ 
   {
     id: 3,
-    src: '/images/gallery3.jpg',
-    alt: 'C',
-  },
-  {
-    id: 4,
-    src: '/images/gallery4.jpg',
+    src: '/images/Dahl04.jpeg',
     alt: 'D',
   },
   {
-    id: 5,
-    src: '/images/gallery5.jpg',
+    id: 2,
+    src: '/images/Dahl05.jpeg',
     alt: 'E',
   },
   {
-    id: 6,
-    src: '/images/gallery6.jpg',
+    id: 1,
+    src: '/images/dahlia.jpeg',
     alt: 'F',
+  },
+   {
+    id: 6,
+    src: '/images/Dahl01.jpeg',
+    alt: 'A',
+  },
+  {
+    id: 5,
+    src: '/images/Dahl02.jpeg',
+    alt: 'B',
+  },
+  {
+    id: 4,
+    src: '/images/Dahl03.jpeg',
+    alt: 'C',
   },
 ]
 
